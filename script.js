@@ -178,30 +178,41 @@
             greetingMessage = 'Bom dia, ';
             greetingComplement = 'meu amor!';
             animationColor = '#87CEEB';
-            greetingMessageElement.textContent = "Sei que vai arrasar no seu dia!"; 
+            greetingMessageText = "Sei que vai arrasar no seu dia!"; 
             greetingTextElement.classList.add('morning');
         } else if (hour >= 12 && hour < 18) {
             greetingMessage = 'Boa tarde, ';
             greetingComplement = 'meu bem!';
             animationColor = '#FFD700';
-            greetingMessageElement.textContent = "'Metade do dia já foi, vamos vencer o resto!'"; 
+            greetingMessageText = "Metade do dia já foi, vamos vencer o resto!"; 
             greetingTextElement.classList.add('afternoon');
         } else if (hour >= 18 && hour < 22) {
             greetingMessage = 'Boa noite, ';
             greetingComplement = 'minha flor!';
             animationColor = '#663399';
-            greetingMessageElement.textContent = "Uffa, dia quase acabando";
+            greetingMessageText = "Uffa, dia quase acabando";
             greetingTextElement.classList.add('evening');
         } else {
             greetingMessage = 'Boa noite, ';
             greetingComplement = 'meu bb!';
             animationColor = '#FFFFFF';
-            greetingMessageElement.textContent = "Agora é só descansar, parabéns por vencer mais um dia!";
+            greetingMessageText = "Agora é só descansar, parabéns por vencer mais um dia!";
             greetingTextElement.classList.add('night');
         }
 
-        greetingTextElement.textContent = greetingMessage;
-        greetingComplementElement.textContent = greetingComplement;
+        // Limpa os elementos antes de iniciar a animação
+        greetingTextElement.textContent = '';
+        greetingComplementElement.textContent = '';
+        greetingMessageElement.textContent = '';
+
+        // Aplica o efeito de digitação para a primeira parte da saudação
+        typeWriter(greetingTextElement, greetingMessage, 0, 100, function() {
+            // Após terminar a primeira parte, começa a segunda
+            typeWriter(greetingComplementElement, greetingComplement, 0, 20, function() {
+                // Após terminar a segunda parte, começa a mensagem
+                typeWriter(greetingMessageElement, greetingMessageText, 0, 30);
+            });
+        });
 
         // Cria as animações dinamicamente
         for (let i = 0; i < animationCount; i++) {
@@ -231,8 +242,22 @@
         }
     }
 
+    // Função para criar o efeito de digitação
+    function typeWriter(element, text, index, speed, callback) {
+        if (index < text.length) {
+            element.textContent += text.charAt(index);
+            index++;
+            setTimeout(function() {
+                typeWriter(element, text, index, speed, callback);
+            }, speed);
+        } else if (callback) {
+            setTimeout(callback, 300); // Pequena pausa antes de iniciar a próxima parte
+        }
+    }
+
     updateGreeting(); // Atualiza a mensagem e as animações na inicialização
-    setInterval(updateGreeting, 60000); // Atualiza a cada minuto
+    // Atualiza a cada 5 minutos em vez de a cada minuto para evitar interrupções frequentes do efeito
+    setInterval(updateGreeting, 300000);
 
      // Lista de URLs dos vídeos
      const videoUrls = [

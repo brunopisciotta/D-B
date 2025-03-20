@@ -229,6 +229,24 @@ hr{
 
 /* --- ao longo do dia --- */
 
+/* Efeito de digitação */
+.greeting-text, .greeting-complement, .greeting-message {
+    display: inline-block;
+}
+
+.greeting-message::after {
+    content: '|';
+    margin-left: 1px;
+    opacity: 0;
+    animation: cursor 1s infinite;
+}
+
+@keyframes cursor {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+}
+
+
 #greeting {
     text-align: center;
     font-size: 2.5em;
