@@ -1,0 +1,482 @@
+/* --- Estilos gerais --- */
+
+body{
+    background-color: #063970; /* Cor de fundo base */
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    position: relative; /* Importante para posicionar as animações */
+    overflow-x: hidden; /* Evita barra de rolagem horizontal */
+}
+
+.main-content {
+    width: 90%;
+    max-width: 800px;
+    margin: 20px auto; /* Adicionei margem para centralizar */
+    position: relative; /* Garante que o conteúdo fique acima das animações */
+    z-index: 2; /* Garante que o conteúdo fique acima das animações */
+}
+
+h1{
+    color: white;
+    text-align: center;
+}
+
+p{
+    color: white;
+    text-align: center;
+}
+
+hr{
+    width: 70%;
+}
+
+/* --- Carrossel --- */
+
+.carousel-container {
+    position: relative;
+    width: 90%; /* Ocupa 90% da largura da tela */
+    max-width: 600px; /* Defina uma largura máxima para telas maiores (ajuste conforme necessário) */
+    margin: 20px auto; /* Centraliza horizontalmente e adiciona um pouco de margem vertical */
+    /* overflow: hidden; <--- REMOVA OU COMENTE ESTA LINHA */
+    border-radius: 10px; /* Opcional: para cantos arredondados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Opcional: para uma leve sombra */
+}
+
+.carousel-slide {
+    display: none;
+    width: 100%;
+}
+
+.carousel-slide img {
+    display: block;
+    width: 100%;
+    height: auto; /* Mantém a proporção */
+    object-fit: cover; /* Garante que a imagem cubra todo o slide sem distorcer */
+    max-height: 70vh; /* Defina uma altura máxima para o carrossel (ajuste conforme necessário) */
+    border-radius: 20px;
+}
+
+.prev-button, .next-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: white; /* Cor de fundo */
+    color: black;
+    border: none;
+    width: 30px; /* Defina uma largura */
+    height: 30px; /* Defina uma altura igual à largura para torná-los quadrados inicialmente */
+    border-radius: 50%; /* Torna os botões redondos */
+    font-size: 1em; /* Ajuste o tamanho da seta */
+    cursor: pointer;
+    z-index: 10;
+    display: flex; /* Para centralizar o conteúdo (a seta) */
+    justify-content: center;
+    align-items: center;
+    opacity: 0.7; /* Adiciona um pouco de transparência */
+   
+}
+
+.prev-button {
+    left: calc(0% - 20px); /* Posiciona 20px à esquerda da borda esquerda do container */
+}
+
+.next-button {
+    right: calc(0% - 20px); /* Posiciona 20px à direita da borda direita do container */
+}
+
+.prev-button:hover, .next-button:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    opacity: 1;
+}
+
+.carousel-slide:first-child {
+    display: block;
+}
+
+/* Adicione um contêiner para o texto abaixo do carrossel (opcional) */
+.carousel-caption {
+    padding: 10px;
+    text-align: center;
+    font-size: 0.9em;
+    color: #555; /* Cor do texto */
+}
+
+/* --- Timers --- */
+
+.timer-container {
+    width: 90%;
+    max-width: 800px; /* Aumentei um pouco para acomodar os dois timers lado a lado */
+    margin: 20px auto;
+    text-align: center;
+}
+
+.timer-container h1 {
+    margin-bottom: 20px;
+}
+
+.timers-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* Espaço entre os timers */
+}
+
+.timer-item {
+    flex: 1; /* Faz cada timer ocupar o mesmo espaço */
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.timer-item h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.3em;
+    color: white;
+}
+
+.timer-item div {
+    font-size: 1em; /* Ajustado para garantir que o texto caiba */
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.timer-item p {
+    margin: 5px 0 0;
+    font-size: 0.9em;
+}
+
+/* Para telas menores, voltamos à visualização vertical */
+@media (max-width: 600px) {
+    .timers-wrapper {
+        flex-direction: column;
+    }
+    
+    .timer-item {
+        margin-bottom: 15px;
+    }
+}
+
+/* --- Spotify --- */
+
+/* Estilos iniciais: Mostra o iframe de desktop, esconde o de mobile */
+#mobile-iframe {
+    display: none;
+}
+
+/* Media query para telas menores (ex: até 768px de largura - tablets e celulares) */
+@media (max-width: 768px) {
+    #desktop-iframe {
+        display: none;
+    }
+    #mobile-iframe {
+        display: block;
+    }
+}
+
+/* Media query para telas maiores (ex: acima de 768px de largura - desktops) */
+@media (min-width: 769px) {
+    #desktop-iframe {
+        display: block;
+    }
+    #mobile-iframe {
+        display: none;
+    }
+}
+
+/* Estilos para o container dos iframes (opcional) */
+.playlist-container {
+    position: relative; /* Para posicionamento relativo de elementos filhos, se necessário */
+    width: 100%; /* Ocupa a largura total do pai */
+    max-width: 800px; /* Largura máxima para o container */
+    margin: 0 auto; /* Centraliza o container */
+}
+
+/* Estilos para os iframes (você já tem alguns no seu HTML, ajuste aqui se precisar) */
+#desktop-iframe, #mobile-iframe {
+    border-radius: 12px;
+    width: 80%; /* Largura padrão para desktop (será ajustada no mobile) */
+    height: 352px; /* Altura padrão */
+    border: 0;
+}
+
+@media (max-width: 768px) {
+    #desktop-iframe {
+        width: 0; /* Garante que não ocupe espaço */
+        height: 0;
+    }
+    #mobile-iframe {
+        width: 95%; /* Largura maior para mobile */
+        height: 450px; /* Altura maior para mobile */
+    }
+}
+
+@media (min-width: 769px) {
+    #mobile-iframe {
+        width: 0;
+        height: 0;
+    }
+}
+
+
+/* --- ao longo do dia --- */
+
+#greeting {
+    text-align: center;
+    font-size: 2.5em;
+    font-weight: 600;
+    margin: 20px auto;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.7);
+}
+
+.greeting-text {
+    background-image: linear-gradient(135deg, #87CEEB, #FFFFFF);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.greeting-complement {
+    color: white; /* Cor do complemento */
+}
+
+.greeting-message {
+    text-align: center;
+    font-size: 1.2em; /* Tamanho da fonte */
+    color: #fff; /* Cor do texto */
+    margin-top: -15px; /* Espaço entre a saudação e a mensagem */
+    font-style: italic; /* Texto em itálico */
+}
+
+/* Estilos específicos para cada período do dia (JavaScript vai adicionar essas classes) */
+.greeting-text.morning {
+    background-image: linear-gradient(135deg, #87CEEB, #FFFFFF); /* Azul claro para o dia */
+}
+
+.greeting-text.afternoon {
+    background-image: linear-gradient(135deg, #FFA500, #ffd900); /* Amarelo/laranja para a tarde */
+}
+
+.greeting-text.evening {
+    background-image: linear-gradient(135deg, #483D8B, #663399); /* Roxo para a noite */
+}
+
+.greeting-text.night {
+    background-image: linear-gradient(135deg, #191970, #000000); /* Azul muito escuro para preto */
+}
+
+.animations-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+/* Animações Flutuantes */
+.floating-animation {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.3;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+/* Animações Flutuantes */
+.floating-animation {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.3;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+/* Animações */
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.1); opacity: 0.5; }
+    100% { transform: scale(1); opacity: 0.8; }
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.8; }
+    50% { opacity: 0.4; }
+    100% { opacity: 0.8; }
+}
+
+.float {
+    animation-name: float;
+}
+
+.pulse {
+    animation-name: pulse;
+}
+
+.rotate {
+    animation-name: rotate;
+}
+
+.twinkle {
+    animation-name: twinkle;
+}
+
+/* Animações da Manhã */
+.morning-animations {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0; /* Começa invisível */
+    animation: morning-fade 5s forwards; /* Animação de fade-in */
+}
+
+@keyframes morning-fade {
+    0% { opacity: 0; }
+    100% { opacity: 0.1; } /* Ajuste a opacidade conforme necessário */
+}
+
+.morning-animations::before {
+    content: "";
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #87CEEB; /* Azul claro */
+    animation: morning-move 3s infinite alternate; /* Animação de movimento */
+}
+
+@keyframes morning-move {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(10px, 10px); } /* Pequeno movimento */
+}
+
+/* Animações da Tarde */
+.afternoon-animations {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    animation: afternoon-fade 5s forwards;
+    animation-delay: 5s; /* Começa depois da manhã */
+}
+
+@keyframes afternoon-fade {
+    0% { opacity: 0; }
+    100% { opacity: 0.1; }
+}
+
+.afternoon-animations::before {
+    content: "";
+    position: absolute;
+    top: 30%;
+    right: 10%;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #FFD700; /* Amarelo suave */
+    animation: afternoon-pulse 2s infinite alternate; /* Animação de pulsação */
+}
+
+@keyframes afternoon-pulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(1.1); opacity: 0.5; }
+}
+
+/* Animações da Noite */
+.evening-animations {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    animation: evening-fade 5s forwards;
+    animation-delay: 10s; /* Começa depois da tarde */
+}
+
+@keyframes evening-fade {
+    0% { opacity: 0; }
+    100% { opacity: 0.1; }
+}
+
+.evening-animations::before {
+    content: "";
+    position: absolute;
+    bottom: 20%;
+    left: 20%;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: #663399; /* Roxo suave */
+    animation: evening-rotate 4s infinite linear; /* Animação de rotação */
+}
+
+@keyframes evening-rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.night-animations {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    animation: night-fade 5s forwards;
+    animation-delay: 15s; /* Começa depois da noite */
+}
+
+@keyframes night-fade {
+    0% { opacity: 0; }
+    100% { opacity: 0.1; }
+}
+
+.night-animations::before {
+    content: "";
+    position: absolute;
+    bottom: 10%;
+    right: 20%;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #FFFFFF; /* Branco (estrelas) */
+    animation: night-twinkle 1s infinite alternate; /* Animação de brilho */
+}
+
+@keyframes night-twinkle {
+    0% { opacity: 0.8; }
+    100% { opacity: 0.4; }
+}
+
