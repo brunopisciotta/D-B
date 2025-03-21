@@ -199,7 +199,7 @@
         let greetingMessage = '';
         let greetingComplement = '';
         let animationColor = '';
-        let animationCount = 25; 
+        let animationCount = 45; 
 
         // Limpa as animações existentes
         animationsContainer.innerHTML = '';
@@ -255,7 +255,7 @@
             animationElement.style[side] = Math.random() * 4 + 4 + '%'; // Entre 5% e 25% da lateral
 
             // Altura aleatória
-            const randomY = Math.random() * 85 + 1; // Entre 10% e 90%
+            const randomY = Math.random() * 80 + 3; // Entre 10% e 90%
             animationElement.style.top = `${randomY}%`;
 
             // Tamanho aleatório
