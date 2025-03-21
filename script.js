@@ -2,11 +2,48 @@
 
  document.addEventListener('DOMContentLoaded', function() {
     const driveImageIds = [
-        "16z3vSiUgGCT8pTrBwLTQkrX4PG4D4WOr", // Exemplo do ID que você forneceu
-        // Adicione os demais IDs, por exemplo:
+        "16z3vSiUgGCT8pTrBwLTQkrX4PG4D4WOr", 
         "1eXlnRw7E1iZZLiu2L1Z6a9H4S8a8x3_S",
         "1Bwf9kQ90EA4S8yOcJG8qKDKNaK95d6sz",
-        "1J-ikzs76TRojOQ_Bh9HF5drS4geRijje"
+        "12x15z9G1FnFptasfSVYG4d197UzBCayR",
+        "1b2JAF8nwlGKDAw07Dj6ZF-2QJCbggoWN",
+        "1XrOFMQNJx6fyZs5BG8YgQeRmB_BeKiWs",
+        "1V1iSKVjFmZIZZqvKLhrzl4UW8fWwAzLM",
+        "1J9g5o3erqSHDcXo5w4ylOrEw-6T-WhlW",
+        "1Ivyggz9n5rD_LjfThOCBna-xvF9HcmG3",
+        "1piL_d7csZtXWIFU8E-t7Oenf-MPNWKKz",
+        "1tFR6NnIY5AXCUV2QwQTDoacBe1gMou7u",
+        "1NeLFbY5sjHvRlNktojw4rH25R29BlvDG",
+        "1-thrpjCkwfiAQtv8liz4MJ1izJscFH1P",
+        "1faGOOJDyYkvOp3eINTTErDR8FHnGWNG1",
+        "1e2kH1-XClo5cwVW4OBOXNNAwHB-7mr_b",
+        "10vEJZ6TfAtQ9XwHj_JhmqIvWs80_5Vfn",
+        "1blwg6-oK2nE2Z2gj7a7IL0w7xyb121wD",
+        "1pVn826Vi5Ys5XO1k9fLjnCKGRpFDoYJV",
+        "1JGi3g6Cgoy1lwbKE0wR1zZT4l2bGBSU-",
+        "1HotbefsAGQY_YRznXoyybFw0dXrjAulX",
+        "1cbMSdCF5K1kDt1T9BFySrLA30Rd94oEJ",
+        "1Hi7bTjaXcSH43GwBef4seuWz9t_bK3qL",
+        "1ALY0nyKJvr0UArfVB3QFbWbYmvjLxbQZ",
+        "1ZQqmE3LKm39CsuFB4AqC5GCjnhWIz-Q-",
+        "1ESUh_63YXvlI5UKtbvcdLcPoI0eqE-j0",
+        "18Bo1L_rVFU_LPFLwBeU7Gziw5-w49sjZ",
+        "1SnHiOZM8mDkQLf84Yvr37_FO0h9AVEUi",
+        "1aSKENc_iurAH9b-6nZmKlbghKVXZJJJY",
+        "15fy2CP28oiTfK7SWQE2-N3gcex0XpqFx",
+        "13UlyJicnpANmaBFDqJhHFUvYdnlxcChw",
+        "1hfWTjL4ozoqjuHTBUg_sGa25VsgKbEMO",
+        "1bojBfPF1n5jIwur80_Z1GluqmNu6qb-c",
+        "18GZVohTYE6B6AasiNwaezJzyaJWYegTB",
+        "1R9BCF7MVK3p5u_cZ5nkFBfSp8AauOKA1",
+        "1pFv8bFwo4jNBcjDW_xd9bP8UbyIje3qS",
+        "1SAM0ou6Gz87uQMpiI7O9sqr5vb3Msyfq",
+        "17Ss7ZE3XiUkCt0xYBpU4Rglbnc_nhoSr",
+        "1mx1iQPWAYOq73zVI4spl7Yga1GhWK7xu",
+        "1aTJCi5AdrkJQiWLEIqkOKEa9uX38jVwA",
+        "11-g8A1f2oStbG06o-JIuMg0J5IDeeMca",
+        "1ANvqI67NFRGALdB0MlFJg2l0CRSZo3wC",
+        "1TZGJH6H1APlm5c32T48qQnBG9WucJSLY"
         // ... até completar todas as suas imagens
     ];
     
