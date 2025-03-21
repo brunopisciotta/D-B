@@ -1,7 +1,7 @@
 /* --- Estilos gerais --- */
 
 body{
-    background-color: #063970; /* Cor de fundo base */
+    background: linear-gradient(to bottom, #063970 0%, #062e55 50%, #061d35 100%);
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
