@@ -498,3 +498,11 @@ hr{
     100% { opacity: 0.4; }
 }
 
+/* --- Frases --- */
+
+#daily-phrase{
+    font-weight: 500;
+    font-style: italic;
+    margin-left: 15%;
+    margin-right: 15%;
+}
