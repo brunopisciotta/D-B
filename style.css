@@ -474,7 +474,7 @@ hr{
     width: 100%;
     height: 100%;
     opacity: 0;
-    animation: night-fade 5s forwards;
+    animation: night-fade 3s forwards;
     animation-delay: 15s; /* Começa depois da noite */
 }
 
