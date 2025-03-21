@@ -1,117 +1,110 @@
  // -------------- Funções para o Carrossel
 
  document.addEventListener('DOMContentLoaded', function() {
+    const driveImageIds = [
+        "16z3vSiUgGCT8pTrBwLTQkrX4PG4D4WOr", // Exemplo do ID que você forneceu
+        // Adicione os demais IDs, por exemplo:
+        "1eXlnRw7E1iZZLiu2L1Z6a9H4S8a8x3_S",
+        "1Bwf9kQ90EA4S8yOcJG8qKDKNaK95d6sz",
+        "1J-ikzs76TRojOQ_Bh9HF5drS4geRijje"
+        // ... até completar todas as suas imagens
+    ];
+    
     function loadDailyPhotos() {
-        const imageDirectory = 'assets/carrossel/';
-        const numberOfImages = 45; // Atualizado para 37 conforme seu comentário
-        const numberOfSlides = 3;
-        const extensions = ['.jpeg', '.jpg', '.png', '.webp'];
-
+        // Usar o dia atual como seed para randomização
         const today = new Date();
         const seed = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate();
         
-        // Adicionar a biblioteca seedrandom se ela não estiver incluída
-        if (typeof Math.seedrandom !== 'function') {
-            console.warn("Math.seedrandom não está definido. As imagens serão aleatórias a cada carregamento.");
-        } else {
+        // Inicializar o gerador de números aleatórios com a seed
+        if (typeof Math.seedrandom === 'function') {
             Math.seedrandom(seed);
+        } else {
+            console.warn("Math.seedrandom não está definido. As imagens serão aleatórias a cada carregamento.");
         }
-
+        
         const carouselContainer = document.querySelector('.carousel-container');
+        // Limpar o conteúdo atual
         carouselContainer.innerHTML = '';
-
-        for (let i = 0; i < numberOfSlides; i++) {
-            let randomIndex = Math.floor(Math.random() * numberOfImages) + 1;
-            let imageLoaded = false;
-
-            const slide = document.createElement('div');
-            slide.classList.add('carousel-slide');
-            
-            // Tentar cada extensão possível
-            for (let j = 0; j < extensions.length && !imageLoaded; j++) {
-                const imagePath = `${imageDirectory}img (${randomIndex})${extensions[j]}`;  // Com espaço
-                
-                // Cria o elemento de imagem
-                const img = document.createElement('img');
-                img.src = imagePath;
-                img.alt = `Imagem ${randomIndex}`;
-                
-                // Adiciona evento para verificar se a imagem carregou
-                img.onload = function() {
-                    imageLoaded = true;
-                    slide.appendChild(img);
-                };
-                
-                img.onerror = function() {
-                    // Tenta a próxima extensão se esta falhar
-                    console.log(`Imagem não encontrada: ${imagePath}`);
-                };
-                
-                // Tenta carregar a imagem
-                img.src = imagePath;
+        
+        // Selecionar 3 imagens aleatórias com base na seed do dia
+        const selectedImageIndexes = [];
+        while (selectedImageIndexes.length < 3 && selectedImageIndexes.length < driveImageIds.length) {
+            const randomIndex = Math.floor(Math.random() * driveImageIds.length);
+            if (!selectedImageIndexes.includes(randomIndex)) {
+                selectedImageIndexes.push(randomIndex);
             }
-            
-            // Adiciona um fallback para caso nenhuma imagem seja carregada
-            setTimeout(function() {
-                if (!imageLoaded) {
-                    slide.innerHTML = `<p>Imagem não encontrada</p>`;
-                }
-                carouselContainer.appendChild(slide);
-            }, 500);
         }
-
-        // Adiciona os botões de navegação após tentar carregar todas as imagens
-        setTimeout(function() {
-            const prevButton = document.createElement('button');
-            prevButton.classList.add('prev-button');
-            prevButton.innerHTML = '❮';
-            
-            const nextButton = document.createElement('button');
-            nextButton.classList.add('next-button');
-            nextButton.innerHTML = '❯';
-            
-            carouselContainer.appendChild(prevButton);
-            carouselContainer.appendChild(nextButton);
-            
-            initializeCarousel();
-        }, 600);
+        
+        // Criar slides com HTML direto 
+        for (let i = 0; i < selectedImageIndexes.length; i++) {
+            const index = selectedImageIndexes[i];
+            const slideHtml = `
+                <div class="carousel-slide">
+                    <div class="iframe-container">
+                        <iframe src="https://drive.google.com/file/d/${driveImageIds[index]}/preview" 
+                                allow="autoplay" 
+                                frameborder="0">
+                        </iframe>
+                    </div>
+                </div>
+            `;
+            carouselContainer.innerHTML += slideHtml;
+        }
+        
+        // Adicionar botões de navegação usando HTML direto
+        carouselContainer.innerHTML += `
+            <button class="prev-button">❮</button>
+            <button class="next-button">❯</button>
+        `;
+        
+        // Inicializar o carrossel
+        initializeCarousel();
     }
 
-    // Função de inicialização do carrossel
+    // Função para inicializar o carrossel
     function initializeCarousel() {
         const slides = document.querySelectorAll('.carousel-slide');
         const prevButton = document.querySelector('.prev-button');
         const nextButton = document.querySelector('.next-button');
         let currentIndex = 0;
 
-        // Se não houver slides, não inicializa o carrossel
+        // Verificar se existem slides
         if (slides.length === 0) {
             console.error("Nenhum slide encontrado para inicializar o carrossel");
             return;
         }
 
+        // Função para mostrar um slide específico
         function showSlide(index) {
-            slides.forEach(slide => slide.style.display = 'none');
+            // Esconder todos os slides
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = 'none';
+            }
+            // Mostrar apenas o slide atual
             slides[index].style.display = 'block';
         }
 
+        // Navegação para o próximo slide
         function nextSlide() {
             currentIndex = (currentIndex + 1) % slides.length;
             showSlide(currentIndex);
         }
 
+        // Navegação para o slide anterior
         function prevSlide() {
             currentIndex = (currentIndex - 1 + slides.length) % slides.length;
             showSlide(currentIndex);
         }
 
+        // Adicionar listeners para os botões
         prevButton.addEventListener('click', prevSlide);
         nextButton.addEventListener('click', nextSlide);
 
+        // Mostrar o primeiro slide
         showSlide(currentIndex);
     }
 
-    // Carrega as fotos diárias na inicialização
+    // Carregar as fotos ao inicializar a página
     loadDailyPhotos();
 
 
