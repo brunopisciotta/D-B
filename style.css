@@ -311,18 +311,8 @@ hr{
 .floating-animation {
     position: absolute;
     border-radius: 50%;
-    opacity: 0.3;
-    animation-duration: 3s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-}
-
-/* Animações Flutuantes */
-.floating-animation {
-    position: absolute;
-    border-radius: 50%;
-    opacity: 0.3;
-    animation-duration: 3s;
+    opacity: 0.1;
+    animation-duration: 5s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
 }
