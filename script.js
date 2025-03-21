@@ -292,12 +292,16 @@
 
      // Lista de URLs dos vídeos
      const videoUrls = [
-        "https://www.youtube.com/embed/6pi3DJILhYA?si=fyOasq-KdjkmXhC9",
-        "https://www.youtube.com/embed/QRLPk3ZNxwE?si=z_4oKh4j79VW2BGY",
-        "https://www.youtube.com/embed/dgOc8SVqsKw?si=015otXnBj-jfYJ2x",
-        "https://www.youtube.com/embed/-DA3ViA5Ypw?si=hi0s5hRzJHGmhsLi",
-        "https://www.youtube.com/embed/vnUl9Gi6jTI?si=3GY2v9zBtu9SPmBW",
-        "https://www.youtube.com/embed/K8oI19CrlA0?si=BeQ-dbP4oS0ROxpu",
+        "https://www.youtube.com/embed/6pi3DJILhYA?si=fyOasq-KdjkmXhC9", //Como foi sua semana
+        "https://www.youtube.com/embed/QRLPk3ZNxwE?si=z_4oKh4j79VW2BGY", //Eu não sou maluca
+        "https://www.youtube.com/embed/dgOc8SVqsKw?si=015otXnBj-jfYJ2x", //To sem calça
+        "https://www.youtube.com/embed/-DA3ViA5Ypw?si=hi0s5hRzJHGmhsLi", //Fumaça vemeia
+        "https://www.youtube.com/embed/vnUl9Gi6jTI?si=3GY2v9zBtu9SPmBW", //Morre relampago marquinhos
+        "https://www.youtube.com/embed/K8oI19CrlA0?si=BeQ-dbP4oS0ROxpu", //Bia na cozinha
+        "https://www.youtube.com/embed/gWbIX1u1Rmw?si=zdSCSaHy-v6Dyd5k", //Melhores momentos tapas
+        "https://www.youtube.com/embed/m6i0iL5-jVo?si=GSaLT-TopcVcIJXW", //Melhores momentos tapas 
+        "https://www.youtube.com/embed/pAQRPs3Wu4M?si=VFr-hratPBxkh3ea", //Waka, waka
+        "https://www.youtube.com/embed/C6qyJN50BMM?si=Ip-1wsmqyUHithbP", //Melhores 2014
     ];
 
     // -------------- Vídeo diário

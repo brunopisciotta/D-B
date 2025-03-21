@@ -424,7 +424,7 @@ hr{
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background-color: #FFD700; /* Amarelo suave */
+    background-color: #ff9500; /* Amarelo suave */
     animation: afternoon-pulse 2s infinite alternate; /* Animação de pulsação */
 }
 
@@ -491,7 +491,7 @@ hr{
     width: 15px;
     height: 15px;
     border-radius: 50%;
-    background-color: #FFFFFF; /* Branco (estrelas) */
+    background-color: #bababa; /* Branco (estrelas) */
     animation: night-twinkle 1s infinite alternate; /* Animação de brilho */
 }
 
