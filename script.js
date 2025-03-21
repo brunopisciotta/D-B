@@ -252,14 +252,14 @@
 
             // Lados aleatórios
             const side = Math.random() < 0.5 ? 'left' : 'right';
-            animationElement.style[side] = Math.random() * 20 + 5 + '%'; // Entre 5% e 25% da lateral
+            animationElement.style[side] = Math.random() * 4 + 4 + '%'; // Entre 5% e 25% da lateral
 
             // Altura aleatória
-            const randomY = Math.random() * 80 + 10; // Entre 10% e 90%
+            const randomY = Math.random() * 85 + 1; // Entre 10% e 90%
             animationElement.style.top = `${randomY}%`;
 
             // Tamanho aleatório
-            const randomSize = Math.random() * 20 + 10; // Entre 10px e 30px
+            const randomSize = Math.random() * 10 + 10; // Entre 10px e 30px
             animationElement.style.width = `${randomSize}px`;
             animationElement.style.height = `${randomSize}px`;
 
