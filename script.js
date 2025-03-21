@@ -1,9 +1,9 @@
- // -------------- Funções para os Slides
+ // -------------- Funções para o Carrossel
 
  document.addEventListener('DOMContentLoaded', function() {
     function loadDailyPhotos() {
         const imageDirectory = 'assets/carrossel/';
-        const numberOfImages = 37; // Atualizado para 37 conforme seu comentário
+        const numberOfImages = 45; // Atualizado para 37 conforme seu comentário
         const numberOfSlides = 3;
         const extensions = ['.jpeg', '.jpg', '.png', '.webp'];
 
@@ -248,6 +248,7 @@
             element.textContent += text.charAt(index);
             index++;
             setTimeout(function() {
+                4
                 typeWriter(element, text, index, speed, callback);
             }, speed);
         } else if (callback) {
@@ -269,7 +270,7 @@
         "https://www.youtube.com/embed/K8oI19CrlA0?si=BeQ-dbP4oS0ROxpu",
     ];
 
-    // Função para selecionar o vídeo diário
+    // -------------- Vídeo diário
     function selectDailyVideo() {
         const today = new Date();
         const seed = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate();
@@ -281,9 +282,38 @@
     // Atualizar o iframe
     const videoSrc = selectDailyVideo();
     document.getElementById('youtube-video').src = videoSrc;
+
+
+    // -------------- Frases romanticas
+    const romanticPhrases = [
+        "'Desde que te conheci, minha vida se transformou em um filme romântico, daqueles que a gente ama assistir juntinho no sofá. Você é a protagonista dos meus sonhos e a razão do meu sorriso mais sincero.' ",
+        "'Lembro como se fosse hoje do nosso primeiro encontro. Aquele dia mágico em que o tempo parou e eu tive a certeza de que você era a pessoa certa para mim. Mal sabia eu que a nossa história seria ainda mais incrível do que eu imaginava.'",
+        "'Com você, aprendi o verdadeiro significado do amor. Aquele sentimento puro, leve e intenso que me faz querer ser a melhor versão de mim mesmo todos os dias. Obrigado por me amar e me inspirar a ser feliz.'",
+        "'Seu sorriso ilumina meus dias como o sol da manhã. Seus olhos transmitem a paz que acalma minha alma. Seu amor me completa e me faz sentir o homem mais sortudo do mundo.'",
+        "'Nossa história de amor é a minha favorita. Cada capítulo é escrito com carinho, respeito e admiração. Que a gente continue construindo juntos um futuro repleto de momentos inesquecíveis.'",
+        "'Você é a minha musa, a minha inspiração, o meu porto seguro. Ao seu lado, me sinto invencível e capaz de conquistar todos os meus sonhos. Te amo mais do que as palavras podem expressar.'",
+        "'Se o amor fosse um jogo, você seria a minha vitória mais importante. Ao seu lado, me sinto um campeão da felicidade. Obrigado por me fazer sorrir todos os dias, meu amor!'",
+        "'Dizem que o amor é cego, mas eu discordo. Com você, enxergo a vida com mais clareza e beleza. Obrigado por me mostrar o lado bom da vida, meu amor!'",
+        "'Cada detalhe seu me encanta, desde o seu sorriso até o jeito que você arruma o cabelo. Você é a minha obra de arte favorita.'",
+        "'Nossos momentos juntos são como estrelas cadentes: raros e mágicos. Mal posso esperar para criar ainda mais memórias ao seu lado.'",
+        "'Você me ensinou que o amor não precisa ser perfeito, ele só precisa ser verdadeiro. E o nosso amor é o mais verdadeiro que eu já conheci.'",
+        "'Seu amor é o meu combustível, a força que me impulsiona a seguir em frente. Ao seu lado, me sinto capaz de tudo.'",
+        "'Você é a melodia que embala os meus sonhos, a poesia que inspira os meus versos, a luz que guia os meus passos.'",
+        "'Nosso amor é como um jardim florido, que a cada dia se torna mais belo e perfumado. Que a gente continue cultivando esse amor com carinho e dedicação.'",
+        "'Você é a minha pessoa favorita no mundo todo, e eu não trocaria nenhum segundo ao seu lado por nada nesse mundo.'",
+        // mais frases
+    ];
+
+    // Função para selecionar a frase diária
+    function selectDailyPhrase() {
+        const today = new Date();
+        const seed = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate();
+        const randomIndex = seed % romanticPhrases.length; // Garante um índice dentro do array
+
+        return romanticPhrases[randomIndex];
+    }
+
+    // Atualizar o elemento HTML com a frase diária
+    const dailyPhrase = selectDailyPhrase();
+    document.getElementById('daily-phrase').textContent = dailyPhrase;
 });
-
-
-
-
-
