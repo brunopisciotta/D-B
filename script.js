@@ -199,7 +199,7 @@
         let greetingMessage = '';
         let greetingComplement = '';
         let animationColor = '';
-        let animationCount = 15; 
+        let animationCount = 25; 
 
         // Limpa as animações existentes
         animationsContainer.innerHTML = '';
