@@ -28,11 +28,19 @@ h1{
 p{
     color: white;
     text-align: center;
+    margin-top: -15px;
 }
 
 hr{
     width: 70%;
 }
+
+h3{
+    color: white;
+    font-weight: 500;
+}
+
+/* --- Estilos Carrossel --- */
 
 .carousel-container {
     position: relative;
@@ -526,8 +534,20 @@ hr{
 #weekday-phrase {
     font-style: italic; /* Deixa a frase em itálico */
     font-size: 0.9em;
-    max-width: 80%; /* Ajuste conforme necessário */
+    max-width: 60%; /* Ajuste conforme necessário */
     margin: 0 auto; /* Centraliza o texto */
-    margin-top: -15px;
+    margin-top: -10px;
 }
 
+
+/*
+.filmess iframe{
+    position: relative;
+    max-width: 80%;
+    max-height: 10%;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+*/
