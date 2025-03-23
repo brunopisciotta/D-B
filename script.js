@@ -350,4 +350,44 @@
     // Atualizar o elemento HTML com a frase diária
     const dailyPhrase = selectDailyPhrase();
     document.getElementById('daily-phrase').textContent = dailyPhrase;
+
+
+    // -------------- Frases diárias
+
+     /// Lista de mensagens para cada dia da semana
+    const weekdayMessages = [
+        "Último dia do find partiu curtir juntinhos!",
+        "Semaninha começando, vamos vencer juntos!",
+        "Cafézinho e quem sabe um Tapas e Beijos?",
+        "Já vencemos metade, tenho orgulho de você!",
+        "Quase acabando e quem sabe a gente não se vê?",
+        "Ihuuul vencemos mais uma semana, só curtir nosso find!",
+        "Descansar, aproveitar e talvez mimir juntinhos em!"
+    ];
+
+    // Array com os nomes dos dias da semana
+    const daysOfWeek = [
+        "Domingou:",
+        "Segunda:",
+        "Terçouuu:",
+        "Quarta:",
+        "Quinta:",
+        "Sextou:",
+        "Sábadou:"
+    ];
+
+    // Função para obter o dia da semana e exibir a mensagem
+    function displayWeekdayMessage() {
+        const today = new Date();
+        const dayOfWeek = today.getDay(); // 0 (Domingo) a 6 (Sábado)
+
+        const day = daysOfWeek[dayOfWeek];
+        const phrase = weekdayMessages[dayOfWeek];
+
+        document.getElementById('weekday-day').textContent = day;
+        document.getElementById('weekday-phrase').textContent = phrase;
+    }
+
+    // Exibir a mensagem ao carregar a página
+    displayWeekdayMessage();
 });

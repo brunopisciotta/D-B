@@ -509,3 +509,22 @@ hr{
     margin-right: 15%;
 }
 
+/* --- Frases diárias --- */
+
+#weekday-message {
+    text-align: center; /* Centraliza o conteúdo da div */
+    margin: 2%;
+}
+
+#weekday-day {
+    font-weight: bold; /* Deixa o dia da semana em negrito */
+    font-size: 1.2em; /* Aumenta um pouco o tamanho da fonte */
+}
+
+#weekday-phrase {
+    font-style: italic; /* Deixa a frase em itálico */
+    font-size: 0.9em;
+    max-width: 80%; /* Ajuste conforme necessário */
+    margin: 0 auto; /* Centraliza o texto */
+}
+
