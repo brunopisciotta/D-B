@@ -199,7 +199,7 @@
         let greetingMessage = '';
         let greetingComplement = '';
         let animationColor = '';
-        let animationCount = 45; 
+        let animationCount = 30; 
 
         // Limpa as animações existentes
         animationsContainer.innerHTML = '';
@@ -356,7 +356,7 @@
 
      /// Lista de mensagens para cada dia da semana
     const weekdayMessages = [
-        "Último dia do find partiu curtir juntinhos!",
+        "Último dia do find, partiu curtir juntinhos!",
         "Semaninha começando, vamos vencer juntos!",
         "Cafézinho e quem sabe um Tapas e Beijos?",
         "Já vencemos metade, tenho orgulho de você!",
