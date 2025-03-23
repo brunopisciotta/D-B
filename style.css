@@ -523,7 +523,7 @@ h3{
 #weekday-message {
     text-align: center; /* Centraliza o conteúdo da div */
     margin: 2%;
-    margin-top: -10px;
+    margin-top: -15px;
 }
 
 #weekday-day {
@@ -536,9 +536,15 @@ h3{
     font-size: 0.9em;
     max-width: 60%; /* Ajuste conforme necessário */
     margin: 0 auto; /* Centraliza o texto */
-    margin-top: -10px;
+    margin-top: -15px;
 }
 
+#weekday-date {
+    font-size: 1em; /* Tamanho da fonte para a data */
+    margin-bottom: 5px; /* Espaço abaixo da data */
+    color: #ffffff; /* Cor do texto para a data (cinza claro) */
+    margin-bottom: 20px;
+}
 
 /*
 .filmess iframe{

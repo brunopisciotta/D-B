@@ -380,11 +380,18 @@
     function displayWeekdayMessage() {
         const today = new Date();
         const dayOfWeek = today.getDay(); // 0 (Domingo) a 6 (Sábado)
+        const day = today.getDate();
+        const month = today.getMonth() + 1; // Adiciona 1 porque os meses começam em 0
+        const year = today.getFullYear();
 
-        const day = daysOfWeek[dayOfWeek];
+         // Formata a data no formato DD/MM/AAAA
+         const formattedDate = `${day.toString().padStart(2, '0')}/${month.toString().padStart(2, '0')}/${year}`; // Usa a variável 'year'
+
+        const dayName = daysOfWeek[dayOfWeek];
         const phrase = weekdayMessages[dayOfWeek];
 
-        document.getElementById('weekday-day').textContent = day;
+        document.getElementById('weekday-date').textContent = formattedDate;
+        document.getElementById('weekday-day').textContent = dayName;
         document.getElementById('weekday-phrase').textContent = phrase;
     }
 
