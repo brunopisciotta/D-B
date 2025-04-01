@@ -149,9 +149,11 @@
 
     const timer1Element = document.getElementById('timer1');
     const timer2Element = document.getElementById('timer2');
+    const timer3Element = document.getElementById('timer3');
 
     const startDate1 = new Date('2020-02-28T00:00:00');
-    const startDate2 = new Date('2021-02-24T00:00:00');
+    const startDate2 = new Date('2020-09-24T00:00:00');
+    const startDate3 = new Date('2021-02-28T00:00:00');
 
     function updateTimer(element, startDate) {
         function update() {
@@ -181,6 +183,7 @@
 
     updateTimer(timer1Element, startDate1);
     updateTimer(timer2Element, startDate2);
+    updateTimer(timer3Element, startDate3);
 
 
      // -------------- Funções para o Bom dia
